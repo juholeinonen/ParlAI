@@ -513,6 +513,7 @@ class TorchAgent(ABC, Agent):
                 'fasttext-fixed',
                 'fasttext_cc',
                 'fasttext_cc-fixed',
+                'fasttext_fi',
             ],
             help='Choose between different strategies for initializing word '
             'embeddings. Default is random, but can also preinitialize '
@@ -1229,6 +1230,11 @@ class TorchAgent(ABC, Agent):
         elif emb_type.startswith('fasttext_cc'):
             init = 'fasttext_cc'
             from parlai.zoo.fasttext_cc_vectors.build import download
+
+            embs = download(self.opt.get('datapath'))
+        elif emb_type.startswith('fasttext_fi'):
+            init = 'fasttext_fi'
+            from parlai.zoo.fasttext_fi_vectors.build import download
 
             embs = download(self.opt.get('datapath'))
         elif emb_type.startswith('fasttext'):
