@@ -465,8 +465,10 @@ class FixedDialogTeacher(Teacher):
                     break
                 buffer_entry_idx += 1
             # apply mutators
-            for mutator in self.mutators:
-                episode_buffer = mutator(episode_buffer)
+            if self.mutators:
+                episode_buffer = [m.copy() for m in episode_buffer]
+                for mutator in self.mutators:
+                    episode_buffer = mutator(episode_buffer)
             self.episode_buffer = list(episode_buffer)
 
             if not self.episode_buffer:
@@ -497,13 +499,13 @@ class FixedDialogTeacher(Teacher):
         """
         Get the number of episodes in this dataset.
         """
-        raise RuntimeError('"num_episodes" must be overriden by children.')
+        raise RuntimeError('"num_episodes" must be overridden by children.')
 
     def num_examples(self) -> int:
         """
         Get the total number of examples in this dataset.
         """
-        raise RuntimeError('"num_examples" must be overriden by children.')
+        raise RuntimeError('"num_examples" must be overridden by children.')
 
     def get(self, episode_idx, entry_idx=0):
         """
@@ -519,7 +521,7 @@ class FixedDialogTeacher(Teacher):
             single-entry episodes, so this defaults to zero.
         """
         # TODO: mark as abstract, get rid of runtime error.
-        raise RuntimeError('"Get" method must be overriden by children.')
+        raise RuntimeError('"Get" method must be overridden by children.')
 
     def observe(self, observation):
         """
@@ -678,7 +680,7 @@ class DialogTeacher(FixedDialogTeacher):
         new episodes.
 
         :param str datafile:
-            If the initializer set a 'datafile' field within the initalization,
+            If the initializer set a 'datafile' field within the initialization,
             this will be provided here. Otherwise, datafile will be the fold:
             either "train", "valid", or "test".
 
@@ -711,7 +713,7 @@ class DialogTeacher(FixedDialogTeacher):
         """
         Provide consistent label candidates for all examples.
 
-        Default implementation returns ``None`` always, but this may be overriden to
+        Default implementation returns ``None`` always, but this may be overridden to
         provide candidates in all areas. See ``FbDialogueTeacher``.
         """
         # TODO DEPRECATIONDAY: FbDialogueTeacher is being deprecated, should we
@@ -766,8 +768,10 @@ class DialogTeacher(FixedDialogTeacher):
                     self._saw_epoch_done = epoch_done
                     break
             # perform any mutations there are
-            for mutator in self.mutators:
-                episode_buffer = mutator(episode_buffer)
+            if self.mutators:
+                episode_buffer = [m.copy() for m in episode_buffer]
+                for mutator in self.mutators:
+                    episode_buffer = mutator(episode_buffer)
             # make sure mutations are fully realized (not generators)
             self.episode_buffer = list(episode_buffer)
             # The recursive call has dual purpose:
@@ -1267,7 +1271,7 @@ class FbDeprecatedDialogTeacher(DialogTeacher):
 
     def share(self):
         """
-        Share the data and canidates.
+        Share the data and candidates.
         """
         shared = super().share()
         shared['cands'] = self.cands
@@ -1780,7 +1784,7 @@ class AbstractImageTeacher(FixedDialogTeacher):
         # avoid calculating image features twice.
         self.image_mode = opt.get('image_mode')
 
-        # Not using default image_mode paramater b/c there is a normalization
+        # Not using default image_mode parameter b/c there is a normalization
         # (or bug) somewhere in build_dict that is setting it to none
         self.include_image = opt.get('image_mode') != 'no_image_model'
 
@@ -1919,7 +1923,7 @@ class AbstractImageTeacher(FixedDialogTeacher):
         """
         Image features for the dataset images are stored here.
 
-        Can be overriden in subclass to use custom paths. Image features can be manually
+        Can be overridden in subclass to use custom paths. Image features can be manually
         copied into this directory or in the case of ImageLoader eligible models, they
         will be built and stored here if not already there.
         """
@@ -1938,7 +1942,7 @@ class AbstractImageTeacher(FixedDialogTeacher):
 
         Users may wish to compute features for the dataset offline and use in the model,
         in which case, the image model should return False and get_image_features()
-        should be overriden in subclass.
+        should be overridden in subclass.
         """
         return model_name in ImageLoader.get_available_model_names()
 
@@ -1980,7 +1984,7 @@ class AbstractImageTeacher(FixedDialogTeacher):
         Load text and image data.
 
         The image features all live in dicts by default in <data_path>/
-        image_features/ but get_image_features_path() above can be overriden by
+        image_features/ but get_image_features_path() above can be overridden by
         subclass to put them elsewhere.
 
         In the (very odd) case that the resnet or resnext dicts (models
@@ -2075,7 +2079,7 @@ class AbstractImageTeacher(FixedDialogTeacher):
         """
         Get image features for example.
 
-        Can be overrided in subclass for different behavior. For large datasets, it may
+        Can be overridden in subclass for different behavior. For large datasets, it may
         be more appropriate to use the ImageLoader.load() method to load image features
         (as this is essentially streaming the features from disk, so that we do not have
         to load a large image feature dict in memory). #TODO Could be the default option
@@ -2287,22 +2291,14 @@ class ChunkTeacher(FixedDialogTeacher, ABC):
         super().__init__(opt, shared)
         self.buffersize = self.get_buffersize()
 
-        if 'stream' not in opt['datatype']:
-            raise ValueError('Chunk teacher should be used with streaming. ')
-
         self.set_datasettings(opt)
+        # chunk teacher makes shuffling decisions based on training, but
+        # train:stream turns off shuffling in other teachers.
+        self.datatype = DatatypeHelper.strip_stream(opt['datatype'])
 
         self.dws = int(self.opt.get('distributed_world_size', 1))
         self.rank = int(self.opt.get('rank', 0))
         self.bg_index = self.opt.get('background_index', None)
-        if (
-            shared is None
-            and self.is_train
-            and self.opt.get('distributed_world_size') is not None
-        ):
-            self.fold_chunks = [
-                c for c in self.fold_chunks if c % self.dws == self.rank
-            ]
 
         # If we're in training mode with --num-workers > 0, we will run the
         # chunk teacher in single threaded mode (self.threading is False). In
@@ -2337,7 +2333,7 @@ class ChunkTeacher(FixedDialogTeacher, ABC):
             self.samples = queue.Queue(maxsize=self.buffersize)
             self.chunks = queue.Queue()
             self.reset_counter = SimpleCounter()  # track no. of resets
-            if self.is_train:
+            if DatatypeHelper.should_shuffle(self.datatype):
                 # TODO: possible need a fixed seed here in the future
                 self.rng = random.Random()
             else:
@@ -2423,6 +2419,12 @@ class ChunkTeacher(FixedDialogTeacher, ABC):
         else:
             return self.num_exs // self.dws + int((self.num_exs % self.dws) > self.rank)
 
+    def next_episode_idx(self):
+        # We don't actually track episodes in ChunkTeacher, we just blindly
+        # trust the queue. This hacks around FixedDialogTeacher's next_example
+        # check that the epoch is done.
+        return 0
+
     def _enqueue_request(self):
         """
         Queue a request for loading to the data loader.
@@ -2483,7 +2485,7 @@ class ChunkTeacher(FixedDialogTeacher, ABC):
         """
         Shuffles and queues fold chunks for loading.
         """
-        if self.is_train:
+        if DatatypeHelper.should_shuffle(self.datatype):
             self.rng.shuffle(self.fold_chunks)
         # save the reset count at the time a chunk was queued
         reset_cnt = self.reset_counter.value()
@@ -2524,7 +2526,8 @@ class ChunkTeacher(FixedDialogTeacher, ABC):
         """
         next_chunk, chunk_reset_cnt = self.chunks.get()
         if next_chunk is None:
-            if self.is_train:
+            if DatatypeHelper.should_cycle(self.datatype):
+                # start putting chunks back onto the queue
                 self._enqueue_chunks()
                 next_chunk, chunk_reset_cnt = self.chunks.get()
                 if next_chunk is None:
@@ -2538,10 +2541,22 @@ class ChunkTeacher(FixedDialogTeacher, ABC):
         # abstract method `load_from_chunk` returns a list of tuples
         output = self.load_from_chunk(next_chunk)
 
-        if self.is_train:
+        if DatatypeHelper.should_shuffle(self.datatype):
             # randomize the samples
             random.Random().shuffle(output)
         return output, chunk_reset_cnt
+
+    def next_example(self):
+        # next_example will always fail to provide useful signal on whether
+        # we're at the end of an epoch in chunk teacher. Instead, the queue
+        # empties and we simply start outputting pads forever. As such, we'll
+        # measure epochs when we start receiving only pads.
+
+        # (This isn't relevant for the training loop, which loops for ever and
+        # never "epochs").
+        retval, fake_epoch_done = super().next_example()
+        real_epoch_done = retval.is_padding()
+        return retval, real_epoch_done
 
     def get(self, episode_idx, entry_idx=0):
         if not self.threading and self.samples.empty():

@@ -490,6 +490,38 @@ class ChunkyTeacher(ChunkTeacher):
         return Message({'text': text, 'labels': [label], 'episode_done': True})
 
 
+class WrongExamplesChunkyTeacher(ChunkyTeacher):
+    """
+    Chunk teacher with an incorrect number of examples.
+
+    Useful for testing we don't get a deadlock from a common user error.
+    """
+
+    def num_examples(self):
+        return 10
+
+
+class WrongEpisodesChunkyTeacher(ChunkyTeacher):
+    """
+    Chunk teacher with an incorrect number of episodes.
+    """
+
+    def num_episodes(self):
+        return 10
+
+
+class WrongExamplesEpisodesChunkyTeacher(ChunkyTeacher):
+    """
+    Chunk teacher with an incorrect number of episodes and examples.
+    """
+
+    def num_examples(self):
+        return 10
+
+    def num_episodes(self):
+        return 10
+
+
 class ChunkySmallBufferTeacher(ChunkyTeacher):
     def get_buffersize(self):
         return NUM_TEST // 2
@@ -536,3 +568,17 @@ class ShortFixedTeacher(FixedDialogCandidateTeacher):
 
 class DefaultTeacher(CandidateTeacher):
     pass
+
+
+class TinyTeacher(DialogTeacher):
+    """
+    Teacher with a single example, to test data stratification with fewer examples than
+    GPUs.
+    """
+
+    def __init__(self, opt, shared=None):
+        opt['datafile'] = 'tiny_data'
+        super().__init__(opt, shared)
+
+    def setup_data(self, _):
+        yield {'text': 'hi', 'label': 'there'}, True

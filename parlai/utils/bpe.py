@@ -222,7 +222,7 @@ class BPEHelper(ABC):
                 left = self.helper_decode(tokens[:i], token_ids[:i], delimiter)
                 # token itself is easy to map to a string
                 center = token
-                # to the right, there may stil be special tokens
+                # to the right, there may still be special tokens
                 right = self.decode(
                     tokens[min(len(token_ids), i + 1) :],
                     token_ids[min(len(token_ids), i + 1) :],
@@ -497,12 +497,12 @@ class Gpt2BpeHelper(BPEHelper):
     BPE Helper for GPT2 Models.
 
     Original source:
-        https://github.com/openai/gpt-2/blob/master/src/encoder.py
+        https://github.com/openai/gpt-2/blob/main/src/encoder.py
 
     Original license: MIT
 
     This is a modified implementation from that of fairseq:
-        https://github.com/pytorch/fairseq/blob/master/fairseq/data/encoders/gpt2_bpe_utils.py
+        https://github.com/pytorch/fairseq/blob/main/fairseq/data/encoders/gpt2_bpe_utils.py
 
     Fairseq license: MIT
     """
@@ -597,7 +597,7 @@ class Gpt2BpeHelper(BPEHelper):
         The reversible bpe codes work on unicode strings. This means you need a large #
         of unicode characters in your vocab if you want to avoid UNKs. When you're at
         something like a 10B token dataset you end up needing around 5K for decent
-        coverage. This is a signficant percentage of your normal, say, 32K bpe vocab. To
+        coverage. This is a significant percentage of your normal, say, 32K bpe vocab. To
         avoid that, we want lookup tables between utf-8 bytes and unicode strings. And
         avoids mapping to whitespace/control characters the bpe code barfs on.
         """

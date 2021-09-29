@@ -50,7 +50,7 @@ model_list = [
         "path": "zoo:wikipedia_full/tfidf_retriever/model",
         "agent": "tfidf_retriever",
         "task": "wikipedia:full",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/wizard_of_wikipedia",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/wizard_of_wikipedia",
         "description": ("Retrieval over Wikipedia dump, used for Wizard of Wikipedia."),
         "example": (
             "parlai interactive --model tfidf_retriever -mf "
@@ -76,7 +76,7 @@ model_list = [
         "path": "zoo:wizard_of_wikipedia/end2end_generator/model",
         "description": "End2End Generative model for Wizard of Wikipedia",
         "task": "wizard_of_wikipedia:generator",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/wizard_of_wikipedia",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/wizard_of_wikipedia",
         "example": (
             "parlai display_model -t wizard_of_wikipedia:generator "
             "-mf zoo:wizard_of_wikipedia/end2end_generator/model -n 1 "
@@ -108,7 +108,7 @@ model_list = [
         "id": "wizard_of_wikipedia",
         "path": "zoo:wizard_of_wikipedia/full_dialogue_retrieval_model/model",
         "description": "Full Dialogue Retrieval Model for Wizard of Wikipedia",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/wizard_of_wikipedia",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/wizard_of_wikipedia",
         "task": "wizard_of_wikipedia",
         "example2": "parlai interactive -m projects:wizard_of_wikipedia:interactive_retrieval -t wizard_of_wikipedia",
         "result2": (
@@ -153,7 +153,7 @@ model_list = [
         "id": "light",
         "path": "zoo:light/biranker_dialogue/model",
         "agent": "bert_ranker/bi_encoder_ranker",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/light",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/light",
         "task": "light_dialog",
         "description": "LIGHT Dialogue task, replicating the numbers from the paper.",
         "example": (
@@ -169,7 +169,7 @@ model_list = [
         "path": "zoo:personality_captions/transresnet",
         "agent": "projects.personality_captions.transresnet.transresnet:TransresnetAgent",  # noqa: E501
         "task": "personality_captions",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/personality_captions",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/personality_captions",
         "description": (
             "Transresnet Model pretrained on the Personality-Captions task"
         ),
@@ -189,7 +189,7 @@ model_list = [
         "path": "zoo:pretrained_transformers/poly_model_huge_reddit",
         "agent": "transformer/polyencoder",
         "task": "pretrained_transformers",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/polyencoder/",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/polyencoder/",
         "description": (
             "Poly-Encoder pretrained on Reddit. Use this model as an ``--init-model`` for a poly-encoder "
             "when fine-tuning on another task. For more details on how to train, see the project page."
@@ -224,7 +224,7 @@ model_list = [
         "path": "zoo:pretrained_transformers/poly_model_huge_wikito",
         "agent": "transformer/polyencoder",
         "task": "pretrained_transformers",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/polyencoder/",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/polyencoder/",
         "description": (
             "Poly-Encoder pretrained on Wikipedia/Toronto Books. Use this model as an ``--init-model`` for a poly-encoder "
             "when fine-tuning on another task. For more details on how to train, see the project page."
@@ -259,7 +259,7 @@ model_list = [
         "path": "zoo:pretrained_transformers/poly_model_huge_reddit",
         "agent": "transformer/biencoder",
         "task": "pretrained_transformers",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/polyencoder/",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/polyencoder/",
         "description": (
             "Bi-Encoder pretrained on Reddit. Use this model as an ``--init-model`` for a bi-encoder "
             "when fine-tuning on another task. For more details on how to train, see the project page."
@@ -296,7 +296,7 @@ model_list = [
         "path": "zoo:pretrained_transformers/bi_model_huge_wikito",
         "agent": "transformer/biencoder",
         "task": "pretrained_transformers",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/polyencoder/",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/polyencoder/",
         "description": (
             "Bi-Encoder pretrained on Wikipedia/Toronto Books. Use this model as an ``--init-model`` for a poly-encoder "
             "when fine-tuning on another task. For more details on how to train, see the project page."
@@ -333,7 +333,7 @@ model_list = [
         "path": "zoo:pretrained_transformers/cross_model_huge_reddit",
         "agent": "transformer/crossencoder",
         "task": "pretrained_transformers",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/polyencoder/",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/polyencoder/",
         "description": (
             "Cross-Encoder pretrained on Reddit. Use this model as an ``--init-model`` for a cross-encoder "
             "when fine-tuning on another task. For more details on how to train, see the project page."
@@ -367,7 +367,7 @@ model_list = [
         "path": "zoo:pretrained_transformers/cross_model_huge_wikito",
         "agent": "transformer/crossencoder",
         "task": "pretrained_transformers",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/polyencoder/",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/polyencoder/",
         "description": (
             "Cross-Encoder pretrained on Wikipedia/Toronto Books. Use this model as an ``--init-model`` for a poly-encoder "
             "when fine-tuning on another task. For more details on how to train, see the project page."
@@ -401,7 +401,7 @@ model_list = [
         "path": "zoo:pretrained_transformers/model_poly",
         "agent": "transformer/polyencoder",
         "task": "convai2",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/polyencoder/",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/polyencoder/",
         "description": (
             "Polyencoder pretrained on Reddit and fine-tuned on ConvAI2 scoring 89+ hits @ 1/20. See the pretrained_transformers directory for a list of other available pretrained transformers"
         ),
@@ -431,7 +431,7 @@ model_list = [
         "path": "zoo:pretrained_transformers/model_bi",
         "agent": "transformer/biencoder",
         "task": "convai2",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/polyencoder/",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/polyencoder/",
         "description": (
             "Bi-encoder pretrained on Reddit and fine-tuned on ConvAI2 scoring ~87 hits @ 1/20."
         ),
@@ -461,7 +461,7 @@ model_list = [
         "path": "zoo:image_chat/transresnet_multimodal",
         "agent": "projects.image_chat.transresnet_multimodal.transresnet_multimodal:TransresnetMultimodalAgent",  # noqa: E501
         "task": "image_chat",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/image_chat",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/image_chat",
         "description": (
             "Transresnet Multimodal Model pretrained on the Image-Chat task"
         ),
@@ -481,7 +481,7 @@ model_list = [
         "path": "zoo:dialogue_safety/single_turn/model",
         "agent": "transformer/classifier",
         "task": "dialogue_safety:adversarial,dialogue_safety:standard",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/dialogue_safety",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/dialogue_safety",
         "description": (
             "Classifier trained on both the standard and adversarial safety tasks in addition to Wikipedia Toxic Comments."
         ),
@@ -499,7 +499,7 @@ model_list = [
         "path": "zoo:dialogue_safety/multi_turn/model",
         "agent": "bert_classifier",
         "task": "dialogue_safety:multiturn",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/dialogue_safety",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/dialogue_safety",
         "description": (
             "Classifier trained on the multi-turn adversarial safety task in addition to both the single-turn standard and adversarial safety tasks and Wikipedia Toxic Comments."
         ),
@@ -532,7 +532,7 @@ model_list = [
         "path": "zoo:dodecadialogue/all_tasks_mt/model",
         "agent": "image_seq2seq",
         "task": "#Dodeca",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/dodecadialogue/",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/dodecadialogue/",
         "description": "Image Seq2Seq model trained on all DodecaDialogue tasks",
         "example": (
             "parlai interactive -mf zoo:dodecadialogue/all_tasks_mt/model "
@@ -570,7 +570,7 @@ model_list = [
         "path": "zoo:dodecadialogue/convai2_ft/model",
         "agent": "image_seq2seq",
         "task": "convai2",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/dodecadialogue/",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/dodecadialogue/",
         "description": (
             "Image Seq2Seq model trained on all DodecaDialogue tasks and fine-tuned on Convai2"
         ),
@@ -603,7 +603,7 @@ model_list = [
         "path": "zoo:dodecadialogue/cornell_movie_ft/model",
         "agent": "image_seq2seq",
         "task": "cornell_movie",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/dodecadialogue/",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/dodecadialogue/",
         "description": (
             "Image Seq2Seq model trained on all DodecaDialogue tasks and fine-tuned on the Cornell Movie task"
         ),
@@ -632,7 +632,7 @@ model_list = [
         "path": "zoo:dodecadialogue/daily_dialog_ft/model",
         "agent": "image_seq2seq",
         "task": "dailydialog",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/dodecadialogue/",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/dodecadialogue/",
         "description": (
             "Image Seq2Seq model trained on all DodecaDialogue tasks and fine-tuned on the DailyDialog task"
         ),
@@ -660,7 +660,7 @@ model_list = [
         "id": "dodecadialogue",
         "path": "zoo:dodecadialogue/eli5_ft/model",
         "agent": "image_seq2seq",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/dodecadialogue/",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/dodecadialogue/",
         "task": "TBD",
         "description": (
             "Image Seq2Seq model trained on all DodecaDialogue tasks and fine-tuned on the ELI5 task. "
@@ -695,7 +695,7 @@ model_list = [
         "path": "zoo:dodecadialogue/empathetic_dialogues_ft/model",
         "agent": "image_seq2seq",
         "task": "empathetic_dialogues",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/dodecadialogue/",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/dodecadialogue/",
         "description": (
             "Image Seq2Seq model trained on all DodecaDialogue tasks and fine-tuned on the Empathetic Dialogue task"
         ),
@@ -724,7 +724,7 @@ model_list = [
         "path": "zoo:dodecadialogue/igc_ft/model",
         "agent": "image_seq2seq",
         "task": "igc",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/dodecadialogue/",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/dodecadialogue/",
         "description": (
             "Image Seq2Seq model trained on all DodecaDialogue tasks and fine-tuned on the Image Grounded Conversations task"
         ),
@@ -743,7 +743,7 @@ model_list = [
         "path": "zoo:dodecadialogue/image_chat_ft/model",
         "agent": "image_seq2seq",
         "task": "image_chat",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/dodecadialogue/",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/dodecadialogue/",
         "description": (
             "Image Seq2Seq model trained on all DodecaDialogue tasks and fine-tuned on the Image Chat task"
         ),
@@ -763,7 +763,7 @@ model_list = [
         "path": "zoo:dodecadialogue/light_dialog_ft/model",
         "agent": "image_seq2seq",
         "task": "light_dialog",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/dodecadialogue/",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/dodecadialogue/",
         "description": (
             "Image Seq2Seq model trained on all DodecaDialogue tasks and fine-tuned on the LIGHT Dialogue task"
         ),
@@ -791,7 +791,7 @@ model_list = [
         "id": "dodecadialogue",
         "path": "zoo:dodecadialogue/reddit_ft/model",
         "agent": "image_seq2seq",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/dodecadialogue/",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/dodecadialogue/",
         "task": "TBD",
         "description": (
             "Image Seq2Seq model trained on all DodecaDialogue tasks and fine-tuned on the pushshift.io Reddit task"
@@ -813,7 +813,7 @@ model_list = [
         "path": "zoo:dodecadialogue/twitter_ft/model",
         "agent": "image_seq2seq",
         "task": "twitter",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/dodecadialogue/",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/dodecadialogue/",
         "description": (
             "Image Seq2Seq model trained on all DodecaDialogue tasks and fine-tuned on the Twitter task"
         ),
@@ -842,7 +842,7 @@ model_list = [
         "path": "zoo:dodecadialogue/ubuntu_ft/model",
         "agent": "image_seq2seq",
         "task": "ubuntu",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/dodecadialogue/",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/dodecadialogue/",
         "description": (
             "Image Seq2Seq model trained on all DodecaDialogue tasks and fine-tuned on the Ubuntu V2 task"
         ),
@@ -871,7 +871,7 @@ model_list = [
         "path": "zoo:dodecadialogue/wizard_of_wikipedia_ft/model",
         "agent": "image_seq2seq",
         "task": "wizard_of_wikipedia:Generator",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/dodecadialogue/",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/dodecadialogue/",
         "description": (
             "Image Seq2Seq model trained on all DodecaDialogue tasks and fine-tuned on the Wizard of Wikipedia task"
         ),
@@ -912,7 +912,7 @@ model_list = [
         "id": "dodecadialogue",
         "path": "zoo:dodecadialogue/base_model/model",
         "agent": "image_seq2seq",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/dodecadialogue/",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/dodecadialogue/",
         "task": "#Dodeca",
         "description": (
             "Image Seq2Seq base model, from which all DodecaDialogue models were trained"
@@ -928,7 +928,7 @@ model_list = [
         "path": "zoo:blended_skill_talk/bst_single_task/model",
         "agent": "transformer/polyencoder",
         "task": "blended_skill_talk",
-        "project": 'https://github.com/facebookresearch/ParlAI/tree/master/projects/bst',
+        "project": 'https://github.com/facebookresearch/ParlAI/tree/main/projects/bst',
         "description": "Pretrained polyencoder retrieval model fine-tuned on the BlendedSkillTalk dialogue task.",
         "example": "parlai interactive -mf zoo:blended_skill_talk/bst_single_task/model -t blended_skill_talk",
         "result": 'Results vary.',
@@ -944,7 +944,7 @@ model_list = [
         "path": "zoo:blended_skill_talk/convai2_single_task/model",
         "agent": "transformer/polyencoder",
         "task": "blended_skill_talk",
-        "project": 'https://github.com/facebookresearch/ParlAI/tree/master/projects/bst',
+        "project": 'https://github.com/facebookresearch/ParlAI/tree/main/projects/bst',
         "description": "Pretrained polyencoder retrieval model fine-tuned on the ConvAI2 dialogue task.",
         "example": "parlai eval_model -mf zoo:blended_skill_talk/convai2_single_task/model -t blended_skill_talk -dt test",
         "result": """10:23:53 | Finished evaluating tasks ['blended_skill_talk'] using datatype test
@@ -958,7 +958,7 @@ model_list = [
         "path": "zoo:blended_skill_talk/ed_single_task/model",
         "agent": "transformer/polyencoder",
         "task": "blended_skill_talk",
-        "project": 'https://github.com/facebookresearch/ParlAI/tree/master/projects/bst',
+        "project": 'https://github.com/facebookresearch/ParlAI/tree/main/projects/bst',
         "description": "Pretrained polyencoder retrieval model fine-tuned on the EmpatheticDialogues dialogue task.",
         "example": "parlai eval_model -mf zoo:blended_skill_talk/ed_single_task/model -t blended_skill_talk -dt test",
         "result": """10:16:47 | Finished evaluating tasks ['blended_skill_talk'] using datatype test
@@ -972,7 +972,7 @@ model_list = [
         "path": "zoo:blended_skill_talk/wizard_single_task/model",
         "agent": "transformer/polyencoder",
         "task": "blended_skill_talk",
-        "project": 'https://github.com/facebookresearch/ParlAI/tree/master/projects/bst',
+        "project": 'https://github.com/facebookresearch/ParlAI/tree/main/projects/bst',
         "description": "Pretrained polyencoder retrieval model fine-tuned on the Wizard of Wikipedia dialogue task.",
         "example": "parlai eval_model -mf zoo:blended_skill_talk/wizard_single_task/model -t blended_skill_talk -dt test",
         "result": """10:34:46 | Finished evaluating tasks ['blended_skill_talk'] using datatype test
@@ -986,7 +986,7 @@ model_list = [
         "path": "zoo:blended_skill_talk/multi_task/model",
         "agent": "transformer/polyencoder",
         "task": "blended_skill_talk",
-        "project": 'https://github.com/facebookresearch/ParlAI/tree/master/projects/bst',
+        "project": 'https://github.com/facebookresearch/ParlAI/tree/main/projects/bst',
         "description": "Pretrained polyencoder retrieval model fine-tuned on the ConvAI2, EmpatheticDialogues, and Wizard of Wikipedia dialogue tasks.",
         "example": "parlai eval_model -mf zoo:blended_skill_talk/multi_task/model -t blended_skill_talk -dt test",
         "result": """10:23:35 | Finished evaluating tasks ['blended_skill_talk'] using datatype test
@@ -1000,7 +1000,7 @@ model_list = [
         "path": "zoo:blended_skill_talk/multi_task_bst_tuned/model",
         "agent": "transformer/polyencoder",
         "task": "blended_skill_talk",
-        "project": 'https://github.com/facebookresearch/ParlAI/tree/master/projects/bst',
+        "project": 'https://github.com/facebookresearch/ParlAI/tree/main/projects/bst',
         "description": "Pretrained polyencoder retrieval model fine-tuned on the ConvAI2, EmpatheticDialogues, and Wizard of Wikipedia dialogue tasks, and then further fine-tuned on the BlendedSkillTalk dialogue task.",
         "example": "parlai eval_model -mf zoo:blended_skill_talk/multi_task_bst_tuned/model -t blended_skill_talk -dt test",
         "result": """10:36:01 | Finished evaluating tasks ['blended_skill_talk'] using datatype test
@@ -1014,7 +1014,7 @@ model_list = [
         "path": "zoo:tutorial_transformer_generator/model",
         "task": "pushshift.io",
         "description": (
-            "Small (87M paramter) generative transformer, pretrained on pushshift.io Reddit."
+            "Small (87M parameter) generative transformer, pretrained on pushshift.io Reddit."
         ),
         "example": "parlai interactive -mf zoo:tutorial_transformer_generator/model",
         "external_website": '',
@@ -1033,7 +1033,7 @@ model_list = [
         "path": "zoo:blender/blender_90M/model",
         "agent": "transformer/generator",
         "task": "blended_skill_talk",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/blender",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/blender",
         "description": (
             "90< parameter generative model finetuned on blended_skill_talk tasks."
         ),
@@ -1051,7 +1051,7 @@ model_list = [
         "path": "zoo:blender/blender_3B/model",
         "agent": "transformer/generator",
         "task": "blended_skill_talk",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/blender",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/blender",
         "description": (
             "2.7B parameter generative model finetuned on blended_skill_talk tasks."
         ),
@@ -1069,7 +1069,7 @@ model_list = [
         "path": "zoo:blender/blender_1Bdistill/model",
         "agent": "transformer/generator",
         "task": "blended_skill_talk",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/blender",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/blender",
         "description": (
             "2.7B parameter generative model finetuned on blended_skill_talk tasks and then distilled to ~1.4B parameters and roughly 2x the inference speed."
         ),
@@ -1087,7 +1087,7 @@ model_list = [
         "path": "zoo:blender/blender_400Mdistill/model",
         "agent": "transformer/generator",
         "task": "blended_skill_talk",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/blender",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/blender",
         "description": (
             "2.7B parameter generative model finetuned on blended_skill_talk tasks and then distilled to ~360M parameters and roughly 5x the inference speed."
         ),
@@ -1105,7 +1105,7 @@ model_list = [
         "path": "zoo:blender/blender_9B/model",
         "agent": "transformer/generator",
         "task": "blended_skill_talk",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/blender",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/blender",
         "description": (
             "9.4B parameter generative model finetuned on blended_skill_talk tasks."
         ),
@@ -1123,7 +1123,7 @@ model_list = [
         "path": "zoo:blender/reddit_3B/model",
         "agent": "transformer/generator",
         "task": "pushshift.io",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/blender",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/blender",
         "description": (
             "2.7B parameter generative model pretrained on Reddit but not finetuned."
         ),
@@ -1138,7 +1138,7 @@ model_list = [
         "path": "zoo:blender/reddit_9B/model",
         "agent": "transformer/generator",
         "task": "pushshift.io",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/blender",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/blender",
         "description": (
             "9.4B parameter generative model pretrained on Reddit but not finetuned."
         ),
@@ -1181,7 +1181,7 @@ model_list = [
         "path": "zoo:dialogue_unlikelihood/rep_convai2_ctxt_and_label/model",
         "agent": "projects.dialogue_unlikelihood.agents:RepetitionUnlikelihoodAgent",
         "task": "convai2",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/dialogue_unlikelihood",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/dialogue_unlikelihood",
         "description": (
             "Dialogue model finetuned on ConvAI2 with context and label repetition unlikelihood"
         ),
@@ -1199,7 +1199,7 @@ model_list = [
         "path": "zoo:dialogue_unlikelihood/rep_convai2_ctxt/model",
         "agent": "projects.dialogue_unlikelihood.agents:RepetitionUnlikelihoodAgent",
         "task": "convai2",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/dialogue_unlikelihood",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/dialogue_unlikelihood",
         "description": (
             "Dialogue model finetuned on ConvAI2 with context repetition unlikelihood"
         ),
@@ -1217,7 +1217,7 @@ model_list = [
         "path": "zoo:dialogue_unlikelihood/rep_convai2_label/model",
         "agent": "projects.dialogue_unlikelihood.agents:RepetitionUnlikelihoodAgent",
         "task": "convai2",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/dialogue_unlikelihood",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/dialogue_unlikelihood",
         "description": (
             "Dialogue model finetuned on ConvAI2 with label repetition unlikelihood"
         ),
@@ -1235,7 +1235,7 @@ model_list = [
         "path": "zoo:dialogue_unlikelihood/rep_eli5_ctxt_and_label/model",
         "agent": "projects.dialogue_unlikelihood.agents:RepetitionUnlikelihoodAgent",
         "task": "eli5",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/dialogue_unlikelihood",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/dialogue_unlikelihood",
         "description": (
             "Dialogue model finetuned on ELI5 with context and label repetition unlikelihood"
         ),
@@ -1250,7 +1250,7 @@ model_list = [
         "path": "zoo:dialogue_unlikelihood/rep_celi5_ctxt/model",
         "agent": "projects.dialogue_unlikelihood.agents:RepetitionUnlikelihoodAgent",
         "task": "eli5",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/dialogue_unlikelihood",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/dialogue_unlikelihood",
         "description": (
             "Dialogue model finetuned on ELI5 with context repetition unlikelihood"
         ),
@@ -1265,7 +1265,7 @@ model_list = [
         "path": "zoo:dialogue_unlikelihood/rep_eli5_label/model",
         "agent": "projects.dialogue_unlikelihood.agents:RepetitionUnlikelihoodAgent",
         "task": "eli5",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/dialogue_unlikelihood",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/dialogue_unlikelihood",
         "description": (
             "Dialogue model finetuned on ELI5 with label repetition unlikelihood"
         ),
@@ -1280,7 +1280,7 @@ model_list = [
         "path": "zoo:dialogue_unlikelihood/rep_wiki_ctxt_and_label/model",
         "agent": "projects.dialogue_unlikelihood.agents:RepetitionUnlikelihoodAgent",
         "task": "wizard_of_wikipedia:GeneratorTeacher",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/dialogue_unlikelihood",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/dialogue_unlikelihood",
         "description": (
             "Dialogue model finetuned on Wizard of Wikipedia with context and label repetition unlikelihood"
         ),
@@ -1295,7 +1295,7 @@ model_list = [
         "path": "zoo:dialogue_unlikelihood/rep_wiki_ctxt/model",
         "agent": "projects.dialogue_unlikelihood.agents:RepetitionUnlikelihoodAgent",
         "task": "wizard_of_wikipedia:GeneratorTeacher",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/dialogue_unlikelihood",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/dialogue_unlikelihood",
         "description": (
             "Dialogue model finetuned on Wizard of Wikipedia with context repetition unlikelihood"
         ),
@@ -1310,7 +1310,7 @@ model_list = [
         "path": "zoo:dialogue_unlikelihood/rep_wiki_label/model",
         "agent": "projects.dialogue_unlikelihood.agents:RepetitionUnlikelihoodAgent",
         "task": "wizard_of_wikipedia:GeneratorTeacher",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/dialogue_unlikelihood",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/dialogue_unlikelihood",
         "description": (
             "Dialogue model finetuned on Wizard of Wikipedia with label repetition unlikelihood"
         ),
@@ -1325,7 +1325,7 @@ model_list = [
         "path": "zoo:dialogue_unlikelihood/vocab_alpha1e0/model",
         "agent": "projects.dialogue_unlikelihood.agents:RepetitionUnlikelihoodAgent",
         "task": "convai2",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/dialogue_unlikelihood",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/dialogue_unlikelihood",
         "description": (
             "Dialogue model finetuned on convai2 with vocab unlikelihood, alpha value 1e0"
         ),
@@ -1343,7 +1343,7 @@ model_list = [
         "path": "zoo:dialogue_unlikelihood/vocab_alpha1e1/model",
         "agent": "projects.dialogue_unlikelihood.agents:RepetitionUnlikelihoodAgent",
         "task": "convai2",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/dialogue_unlikelihood",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/dialogue_unlikelihood",
         "description": (
             "Dialogue model finetuned on convai2 with vocab unlikelihood, alpha value 1e1"
         ),
@@ -1361,7 +1361,7 @@ model_list = [
         "path": "zoo:dialogue_unlikelihood/vocab_alpha1e2/model",
         "agent": "projects.dialogue_unlikelihood.agents:RepetitionUnlikelihoodAgent",
         "task": "convai2",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/dialogue_unlikelihood",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/dialogue_unlikelihood",
         "description": (
             "Dialogue model finetuned on convai2 with vocab unlikelihood, alpha value 1e2"
         ),
@@ -1379,7 +1379,7 @@ model_list = [
         "path": "zoo:dialogue_unlikelihood/vocab_alpha1e3/model",
         "agent": "projects.dialogue_unlikelihood.agents:RepetitionUnlikelihoodAgent",
         "task": "convai2",
-        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/dialogue_unlikelihood",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/main/projects/dialogue_unlikelihood",
         "description": (
             "Dialogue model finetuned on convai2 with vocab unlikelihood, alpha value 1e3"
         ),
@@ -1397,7 +1397,7 @@ model_list = [
         "path": "zoo:style_gen/c75_labeled_dialogue_generator/model",
         "agent": "projects.style_gen.style_gen:StyleGenAgent",
         "task": "style_gen:LabeledBlendedSkillTalk",
-        "project": 'https://github.com/facebookresearch/ParlAI/tree/master/projects/style_gen',
+        "project": 'https://github.com/facebookresearch/ParlAI/tree/main/projects/style_gen',
         "description": "Generator trained on dialogue datasets, with 75% of train examples appended with Image-Chat personality labels",
         "example": "parlai eval_model --datatype test --model projects.style_gen.style_gen:StyleGenAgent --model-file zoo:style_gen/c75_labeled_dialogue_generator/model --skip-generation True --task style_gen:LabeledBlendedSkillTalk --use-style-frac 1.00",
         "result": """16:56:52 | Finished evaluating tasks ['style_gen:LabeledBlendedSkillTalk'] using datatype test
@@ -1410,7 +1410,7 @@ model_list = [
         "path": "zoo:style_gen/prev_curr_classifier/model",
         "agent": "projects.style_gen.classifier:ClassifierAgent",
         "task": "style_gen:LabeledBlendedSkillTalk",
-        "project": 'https://github.com/facebookresearch/ParlAI/tree/master/projects/style_gen',
+        "project": 'https://github.com/facebookresearch/ParlAI/tree/main/projects/style_gen',
         "description": "Classifier trained on Image-Chat turns 2 and 3 to classify the personality of an example given that utterance and the previous utterance.",
         "example": "parlai eval_model --task style_gen:PrevCurrUttStyle --wrapper-task style_gen:LabeledBlendedSkillTalk --model-file zoo:style_gen/prev_curr_classifier/model --model projects.style_gen.classifier:ClassifierAgent --classes-from-file image_chat_personalities_file",
         "result": """18:42:33 | Finished evaluating tasks ['style_gen:PrevCurrUttStyle'] using datatype valid
@@ -1445,7 +1445,7 @@ model_list = [
         "path": 'n/a',
         "agent": "projects.multimodal_blenderbot.agents:BiasAgent",
         "task": "blended_skill_talk",
-        "project": 'https://github.com/facebookresearch/ParlAI/tree/master/projects/multimodal_blenderbot',
+        "project": 'https://github.com/facebookresearch/ParlAI/tree/main/projects/multimodal_blenderbot',
         "description": "Model trained to talk about both images and general chitchat, trained with a degendering teacher and with 75% of Image-Chat styles replaced by a generic polarity string",
         "example": "python parlai/scripts/safe_interactive.py -t blended_skill_talk -mf ${FINETUNED_MODEL_PATH} --model projects.multimodal_blenderbot.agents:BiasAgent --delimiter $'\n' --beam-block-ngram 3 --beam-context-block-ngram 3 --beam-min-length 20 --beam-size 10 --inference beam --model-parallel False",
         "result": "(results will vary)",
@@ -1518,5 +1518,649 @@ model_list = [
             "Enter Your Message: Hi my name is Emily!\n"
             "[MDGender Classifier]: SELF: female"
         ),
+    },
+    {
+        "title": "Bart FiD DPR Model",
+        "id": "hallucination",
+        "path": "zoo:hallucination/bart_fid_dpr/model",
+        "agent": "fid",
+        "task": "wizard_of_wikipedia",
+        "project": "https://parl.ai/projects/hallucination/",
+        "description": (
+            "FiD model trained with a DPR Retriever and a BART-Large backbone seq2seq generator."
+        ),
+        "example": ("parlai interactive -mf zoo:hallucination/bart_fid_dpr/model"),
+        "result": (
+            "Enter Your Message: Hey! What's your favorite Elvis song?\n"
+            "[Fid]: I love Elvis Presley, he is my favorite singer and songwriter. He was born in Memphis, TN and died in Memphis Tennessee."
+        ),
+        "example2": (
+            "parlai eval_model -mf zoo:hallucination/bart_fid_dpr/model -t wizard_of_wikipedia"
+        ),
+        "result2": (
+            "Finished evaluating tasks ['wizard_of_wikipedia:WizardDialogKnowledge:random_split'] using datatype valid \n"
+            "accuracy  bleu-1  bleu-2  bleu-3  bleu-4  clen  ctpb  ctps  ctrunc  ctrunclen  exps  exs    f1  gpu_mem  interdistinct-1  \\\n"
+            ".0002539   .1772  .08068  .04245  .02717 76.62 78.62 55.81       0          0 .7098 3939 .2097   .04684            .1024\n"
+            "interdistinct-2  intradistinct-1  intradistinct-2  knowledge_f1  llen  loss  ltpb  ltps  ltrunc  ltrunclen   ppl  \\\n"
+            ".4421            .8833            .9822         .2172 23.61 2.687 23.61 16.76       0          0 14.68\n"
+            "rare_word_f1  rouge_1  rouge_2  rouge_L  token_acc  token_em   tpb   tps\n"
+            ".1547    .2647   .08819    .2244      .4348         0 102.2 72.57\n"
+        ),
+    },
+    {
+        "title": "Bart FiD Rag DPR-Poly Model",
+        "id": "hallucination",
+        "path": "zoo:hallucination/bart_fid_rag_dpr_poly/model",
+        "agent": "fid",
+        "task": "wizard_of_wikipedia",
+        "project": "https://parl.ai/projects/hallucination/",
+        "description": (
+            "FiD model trained with a RAG-DPR-Poly Retriever (DPR-Poly retrieval, trained in a RAG Setup) "
+            "and a BART-Large backbone seq2seq generator."
+        ),
+        "example": (
+            "parlai interactive -mf zoo:hallucination/bart_fid_rag_dpr_poly/model"
+        ),
+        "result": (
+            "Enter Your Message: Hey! What's your favorite Elvis song?\n"
+            "[Fid]: I love Elvis Presley! He is my favorite singer, songwriter, actor, and producer."
+        ),
+        "example2": (
+            "parlai eval_model -mf zoo:hallucination/bart_fid_rag_dpr_poly/model -t wizard_of_wikipedia --num-examples 100"
+        ),
+        "result2": (
+            "Finished evaluating tasks ['wizard_of_wikipedia:WizardDialogKnowledge:random_split'] using datatype valid\n"
+            "accuracy  bleu-1  bleu-2  bleu-3  bleu-4  clen  ctpb  ctps  ctrunc  ctrunclen  exps  exs    f1  gpu_mem  interdistinct-1  \\n"
+            ".0002539   .1821  .09088  .05551  .03939 76.62 78.62 53.79       0          0 .6842 3939 .2154   .05641            .1056\n"
+            "interdistinct-2  intradistinct-1  intradistinct-2  knowledge_f1  llen  loss  ltpb  ltps  ltrunc  ltrunclen  ppl  \\n"
+            ".4434            .8964            .9864         .2756 23.61 2.587 23.61 16.16       0          0 13.3\n"
+            "rare_word_f1  rouge_1  rouge_2  rouge_L  token_acc  token_em   tpb   tps\n"
+            ".1686    .2740    .1040    .2351      .4523  .0002539 102.2 69.95"
+        ),
+    },
+    {
+        "title": "Bart FiD Rag Model",
+        "id": "hallucination",
+        "path": "zoo:hallucination/bart_fid_rag/model",
+        "agent": "fid",
+        "task": "wizard_of_wikipedia",
+        "project": "https://parl.ai/projects/hallucination/",
+        "description": (
+            "FiD model trained with a RAG Retriever (DPR retrieval) "
+            "and a BART-Large backbone seq2seq generator."
+        ),
+        "example": ("parlai interactive -mf zoo:hallucination/bart_fid_rag/model"),
+        "result": (
+            "Enter Your Message: Hey! What's your favorite Elvis song?\n"
+            "[Fid]: I love Elvis Presley.  I love his music.  My favorite song is \"My Way.\""
+        ),
+        "example2": (
+            "parlai eval_model -mf zoo:hallucination/bart_fid_rag/model -t wizard_of_wikipedia --num-examples 100"
+        ),
+        "result2": (
+            "Finished evaluating tasks ['wizard_of_wikipedia:WizardDialogKnowledge:random_split'] using datatype valid\n"
+            "accuracy  bleu-4  clen  ctpb  ctps  ctrunc  ctrunclen  exps  exs    f1  gpu_mem  knowledge_f1  llen  loss    lr  ltpb  ltps  ltrunc  ltrunclen   ppl  rare_word_f1  token_acc  \\\n"
+            "       0  .04021 84.71 86.71 26.11       0          0 .3011  100 .2324   .03073         .2381  24.6 2.676 1e-05  24.6 7.407       0          0 14.53         .1678      .4301\n"
+            "token_em   tpb   tps \n"
+            "       0 111.3 33.51"
+        ),
+    },
+    {
+        "title": "Bart RAG DPR-Poly Model",
+        "id": "hallucination",
+        "path": "zoo:hallucination/bart_rag_dpr_poly/model",
+        "agent": "rag",
+        "task": "wizard_of_wikipedia",
+        "project": "https://parl.ai/projects/hallucination/",
+        "description": (
+            "RAG-Token model trained with a DPR Retriever "
+            "and a BART-Large backbone seq2seq generator."
+        ),
+        "example": ("parlai interactive -mf zoo:hallucination/bart_rag_dpr_poly/model"),
+        "result": (
+            "Enter Your Message: Hey! What's your favorite Elvis song?\n"
+            "[RAG]: I love Elvis Presley. He is my favorite singer of all time. Do you have a favorite song?"
+        ),
+        "example2": (
+            "parlai eval_model -mf zoo:hallucination/bart_rag_dpr_poly/model -t wizard_of_wikipedia --num-examples 100"
+        ),
+        "result2": (
+            "Finished evaluating tasks ['wizard_of_wikipedia:WizardDialogKnowledge:random_split'] using datatype valid\n"
+            "accuracy  bleu-1  bleu-2  bleu-3  bleu-4  clen  ctpb  ctps  ctrunc  ctrunclen  exps  exs    f1  gpu_mem  interdistinct-1  \\n"
+            ".0005077   .1884  .09254  .05288  .03484 76.62 78.62 59.44       0          0 .7560 3939 .2230   .08013            .1053\n"
+            "interdistinct-2  intradistinct-1  intradistinct-2  knowledge_f1  llen  loss  ltpb  ltps  ltrunc  ltrunclen   ppl  \\n"
+            ".4343            .9128            .9898         .2424 23.61  2.53 23.61 17.85       0          0 12.56\n"
+            "rare_word_f1  rouge_1  rouge_2  rouge_L  token_acc  token_em   tpb   tps\n"
+            ".1734    .2679   .09963    .2309      .4664  .0002539 102.2 77.29"
+        ),
+    },
+    {
+        "title": "Bart RAG DPR Sequence Model",
+        "id": "hallucination",
+        "path": "zoo:hallucination/bart_rag_sequence/model",
+        "agent": "rag",
+        "task": "wizard_of_wikipedia",
+        "project": "https://parl.ai/projects/hallucination/",
+        "description": (
+            "RAG-Sequence model trained with a DPR Retriever "
+            "and a BART-Large backbone seq2seq generator."
+        ),
+        "example": ("parlai interactive -mf zoo:hallucination/bart_rag_sequence/model"),
+        "result": (
+            "Enter Your Message: Hey! What's your favorite Elvis song?\n"
+            "[RAG]: My favorite Elvis Presley song is \"Stuck on You\". Do you have a favorite Elvis song?"
+        ),
+        "example2": (
+            "parlai eval_model -mf zoo:hallucination/bart_rag_sequence/model -t wizard_of_wikipedia --num-examples 100"
+        ),
+        "result2": (
+            "Finished evaluating tasks ['wizard_of_wikipedia:WizardDialogKnowledge:random_split'] using datatype valid\n"
+            "accuracy  bleu-1  bleu-2  bleu-3  bleu-4  clen  ctpb  ctps  ctrunc  ctrunclen  exps  exs    f1  gpu_mem  interdistinct-1  \\n"
+            ".0007616   .1771  .08545  .04963  .03463 76.62 78.62 43.95       0          0 .5591 3939 .2102   .05834            .1125\n"
+            "interdistinct-2  intradistinct-1  intradistinct-2  knowledge_f1  llen  loss  ltpb  ltps  ltrunc  ltrunclen   ppl  \\n"
+            ".4500            .9186            .9928         .2566 23.61 2.484 23.61  13.2       0          0 11.99\n"
+            "rare_word_f1  rouge_1  rouge_2  rouge_L  token_acc  token_em   tpb   tps\n"
+            ".1630    .2587   .09407    .2234      .4256         0 102.2 57.15"
+        ),
+    },
+    {
+        "title": "Bart RAG DPR Token Model",
+        "id": "hallucination",
+        "path": "zoo:hallucination/bart_rag_token/model",
+        "agent": "rag",
+        "task": "wizard_of_wikipedia",
+        "project": "https://parl.ai/projects/hallucination/",
+        "description": (
+            "RAG-Token model trained with a DPR Retriever "
+            "and a BART-Large backbone seq2seq generator."
+        ),
+        "example": ("parlai interactive -mf zoo:hallucination/bart_rag_token/model"),
+        "result": (
+            "Enter Your Message: Hey! What's your favorite Elvis song?\n"
+            "[RAG]: I love Elvis Presley.  He is my favorite singer of all time.  Do you have a favorite Elvis song?"
+        ),
+        "example2": (
+            "parlai eval_model -mf zoo:hallucination/bart_rag_token/model -t wizard_of_wikipedia --num-examples 100"
+        ),
+        "result2": (
+            "Finished evaluating tasks ['wizard_of_wikipedia:WizardDialogKnowledge:random_split'] using datatype valid\n"
+            "accuracy  bleu-1  bleu-2  bleu-3  bleu-4  clen  ctpb  ctps  ctrunc  ctrunclen  exps  exs    f1  gpu_mem  interdistinct-1  \\n"
+            ".0002539   .1859  .08962  .04951  .03237 76.62 78.62 55.44       0          0 .7052 3939 .2200   .06284            .1012\n"
+            "interdistinct-2  intradistinct-1  intradistinct-2  knowledge_f1  llen  loss  ltpb  ltps  ltrunc  ltrunclen   ppl  \\n"
+            ".4102            .9101            .9882         .2284 23.61 2.529 23.61 16.65       0          0 12.54\n"
+            "rare_word_f1  rouge_1  rouge_2  rouge_L  token_acc  token_em   tpb   tps\n"
+            ".1693    .2625   .09543    .2265      .4627         0 102.2 72.09"
+        ),
+    },
+    {
+        "title": "Bart RAG DPR Turn Doc-Then-Turn Model",
+        "id": "hallucination",
+        "path": "zoo:hallucination/bart_rag_turn_dtt/model",
+        "agent": "rag",
+        "task": "wizard_of_wikipedia",
+        "project": "https://parl.ai/projects/hallucination/",
+        "description": (
+            "RAG-Turn Doc-Then-Turn model trained with a DPR Retriever "
+            "and a BART-Large backbone seq2seq generator."
+        ),
+        "example": ("parlai interactive -mf zoo:hallucination/bart_rag_turn_dtt/model"),
+        "result": (
+            "Enter Your Message: Hey! What's your favorite Elvis song?\n"
+            "[RAG]: I love Elvis Presley. He was a great singer and songwriter. Do you have a favorite song?"
+        ),
+        "example2": (
+            "parlai eval_model -mf zoo:hallucination/bart_rag_turn_dtt/model -t wizard_of_wikipedia --num-examples 100"
+        ),
+        "result2": (
+            "Finished evaluating tasks ['wizard_of_wikipedia:WizardDialogKnowledge:random_split'] using datatype valid\n"
+            "accuracy  bleu-1  bleu-2  bleu-3  bleu-4  clen  ctpb  ctps  ctrunc  ctrunclen  exps  exs    f1  gpu_mem  interdistinct-1  \\n"
+            ".0005077   .1863   .0911  .05345  .03651 76.62 78.62 54.72       0          0 .6960 3939 .2202   .07843            .1032\n"
+            "interdistinct-2  intradistinct-1  intradistinct-2  knowledge_f1  llen  loss  ltpb  ltps  ltrunc  ltrunclen   ppl  \\n"
+            ".4188            .9154            .9915         .2476 23.61 2.527 23.61 16.43       0          0 12.51\n"
+            "rare_word_f1  rouge_1  rouge_2  rouge_L  token_acc  token_em   tpb   tps\n"
+            ".1735    .2648   .09857    .2290      .4599  .0002539 102.2 71.15"
+        ),
+    },
+    {
+        "title": "Bart RAG DPR Turn Doc-Only Model",
+        "id": "hallucination",
+        "path": "zoo:hallucination/bart_rag_turn_do/model",
+        "agent": "rag",
+        "task": "wizard_of_wikipedia",
+        "project": "https://parl.ai/projects/hallucination/",
+        "description": (
+            "RAG-Turn Doc-Then-Turn model trained with a DPR Retriever "
+            "and a BART-Large backbone seq2seq generator."
+        ),
+        "example": ("parlai interactive -mf zoo:hallucination/bart_rag_turn_do/model"),
+        "result": (
+            "Enter Your Message: Hey! What's your favorite Elvis song?\n"
+            "[RAG]: Hey! I love Elvis Presley. He is one of my favorite musicians. I love his voice."
+        ),
+        "example2": (
+            "parlai eval_model -mf zoo:hallucination/bart_rag_turn_do/model -t wizard_of_wikipedia --num-examples 100"
+        ),
+        "result2": (
+            "Finished evaluating tasks ['wizard_of_wikipedia:WizardDialogKnowledge:random_split'] using datatype valid\n"
+            "accuracy  bleu-1  bleu-2  bleu-3  bleu-4  clen  ctpb  ctps  ctrunc  ctrunclen  exps  exs    f1  gpu_mem  interdistinct-1  \\n"
+            ".0002539   .1844  .08733  .04707  .03028 76.62 78.62 51.39       0          0 .6537 3939 .2179   .09101            .1009\n"
+            "interdistinct-2  intradistinct-1  intradistinct-2  knowledge_f1  llen  loss  ltpb  ltps  ltrunc  ltrunclen   ppl  \\n"
+            ".4128            .9113            .9890         .2253 23.61 2.658 23.61 15.43       0          0 14.26\n"
+            "rare_word_f1  rouge_1  rouge_2  rouge_L  token_acc  token_em   tpb   tps\n"
+            ".1656    .2582   .09185    .2228      .4461         0 102.2 66.83"
+        ),
+    },
+    {
+        "title": "Dropout Poly-Encoder",
+        "id": "hallucination",
+        "path": "zoo:hallucination/dropout_poly/model",
+        "agent": "transformer/dropout_poly",
+        "task": "wizard_of_wikipedia",
+        "project": "https://parl.ai/projects/hallucination/",
+        "description": (
+            "A Dropout Poly-encoder trained on the WoW knowledge selection task"
+        ),
+        "example": (
+            "parlai tm -m rag --rag-retriever-type polyfaiss --query-model dropout_poly --poly-faiss-model-file zoo:hallucination/dropout_poly/model"
+        ),
+        "result": ("TODO"),
+    },
+    {
+        "title": "Multiset DPR Model",
+        "id": "hallucination",
+        "path": "zoo:hallucination/multiset_dpr/hf_bert_base.cp",
+        "agent": "rag/dpr_biencoder",
+        "task": "wizard_of_wikipedia",
+        "project": "https://parl.ai/projects/hallucination/",
+        "description": ("A DPR model pre-trained on Natural Questions and Trivia QA"),
+        "example": (
+            "parlai tm -m rag --rag-retriever-type dpr --dpr-model-file zoo:hallucination/multiset_dpr/hf_bert_base.cp"
+        ),
+        "result": ("TODO"),
+    },
+    {
+        "title": "Wikipedia Compressed FAISS Index",
+        "id": "hallucination",
+        "path": "zoo:hallucination/wiki_index_compressed/compressed_pq",
+        "agent": "rag",
+        "task": "wizard_of_wikipedia",
+        "project": "https://parl.ai/projects/hallucination/",
+        "description": (
+            "A compressed FAISS Index with embeddings of Wikipedia passages, generated by the Multiset DPR zoo model."
+        ),
+        "example": (
+            "parlai eval_model -mf zoo:hallucination/bart_rag_token/model --indexer-type compressed --path-to-index zoo:hallucination/wiki_index_compressed/compressed_pq -ne 100"
+        ),
+        "result": ("TODO"),
+    },
+    {
+        "title": "Wikipedia Exact FAISS Index",
+        "id": "hallucination",
+        "path": "zoo:hallucination/wiki_index_exact/exact",
+        "agent": "rag",
+        "task": "wizard_of_wikipedia",
+        "project": "https://parl.ai/projects/hallucination/",
+        "description": (
+            "A FAISS Index with embeddings of Wikipedia passages, generated by the Multiset DPR zoo model."
+        ),
+        "example": (
+            "parlai eval_model -mf zoo:hallucination/bart_rag_token/model --indexer-type exact --path-to-index zoo:hallucination/wiki_index_exact/exact -ne 100"
+        ),
+        "result": ("TODO"),
+    },
+    {
+        "title": "Wikipedia Passages",
+        "id": "hallucination",
+        "path": "zoo:hallucination/wiki_passages/psgs_w100.tsv",
+        "agent": "rag",
+        "task": "wizard_of_wikipedia",
+        "project": "https://parl.ai/projects/hallucination/",
+        "description": (
+            "A dump of Wikipedia articles split into 21m 100 word chunks "
+            "from DPR (https://github.com/facebookresearch/DPR)"
+        ),
+        "example": (
+            "parlai eval_model -mf zoo:hallucination/bart_rag_token/model --indexer-type exact --path-to-index zoo:hallucination/wiki_index_compressed/compressed --path-to-dpr-passages zoo:hallucination/wiki_passages/psgs_w100.tsv -ne 100"
+        ),
+        "result": ("TODO"),
+    },
+    {
+        "title": "WoW Passages",
+        "id": "hallucination",
+        "path": "zoo:hallucination/wow_passages/wow_articles.paragraphs.tsv",
+        "agent": "rag",
+        "task": "wizard_of_wikipedia",
+        "project": "https://parl.ai/projects/hallucination/",
+        "description": (
+            "A dump of Wikipedia articles split into ~3k paragraphs, comprising the subset of "
+            "Wikipedia present in the WoW dataset."
+        ),
+        "example": (
+            "parlai eval_model -mf zoo:hallucination/bart_rag_token/model --indexer-type exact --path-to-index zoo:hallucination/wow_passages/exact --path-to-dpr-passages zoo:hallucination/wow_passages/wow_articles.paragraphs.tsv -ne 100"
+        ),
+        "result": ("TODO"),
+    },
+    {
+        "title": "WoW Passages Compressed Index",
+        "id": "hallucination",
+        "path": "zoo:hallucination/wow_passages/compressed",
+        "agent": "rag",
+        "task": "wizard_of_wikipedia",
+        "project": "https://parl.ai/projects/hallucination/",
+        "description": (
+            "A compressed FAISS Index of embeddings from ~3k paragraphs from "
+            "Wikipedia present in the WoW dataset."
+        ),
+        "example": (
+            "parlai eval_model -mf zoo:hallucination/bart_rag_token/model --indexer-type compressed --path-to-index zoo:hallucination/wow_passages/compressed --path-to-dpr-passages zoo:hallucination/wow_passages/wow_articles.paragraphs.tsv -ne 100"
+        ),
+        "result": ("TODO"),
+    },
+    {
+        "title": "WoW Passages Exact Index",
+        "id": "hallucination",
+        "path": "zoo:hallucination/wow_passages/exact",
+        "agent": "rag",
+        "task": "wizard_of_wikipedia",
+        "project": "https://parl.ai/projects/hallucination/",
+        "description": (
+            "A FAISS Index of embeddings from ~3k paragraphs from "
+            "Wikipedia present in the WoW dataset."
+        ),
+        "example": (
+            "parlai eval_model -mf zoo:hallucination/bart_rag_token/model --indexer-type exact --path-to-index zoo:hallucination/wow_passages/exact --path-to-dpr-passages zoo:hallucination/wow_passages/wow_articles.paragraphs.tsv -ne 100"
+        ),
+        "result": ("TODO"),
+    },
+    {
+        "title": "BlenderBot2 Query Generator",
+        "id": "blenderbot2",
+        "path": "zoo:blenderbot2/query_generator/model",
+        "agent": "bart",
+        "task": "wizard_of_internet:SearchQueryTeacher",
+        "project": "https://parl.ai/projects/blenderbot2/",
+        "description": (
+            "The query generator for BlenderBot2. Either generates a search query "
+            "or a phrase indicating access to the long-term memory"
+        ),
+        "example": ("parlai interactive -mf zoo:blenderbot2/query_generator/model"),
+        "result": (
+            "Enter Your Message: my favorite tv show is wandavision\n"
+            "[Bart]:  wandavision"
+        ),
+    },
+    {
+        "title": "BlenderBot2 Memory Decoder",
+        "id": "blenderbot2",
+        "path": "zoo:blenderbot2/memory_decoder/model",
+        "agent": "bart",
+        "task": "multi",
+        "project": "https://parl.ai/projects/blenderbot2/",
+        "description": (
+            "The memory decoder for BlenderBot2. Either generates a memory "
+            "to write or a token indicating no memory can be written."
+        ),
+        "example": ("parlai interactive -mf zoo:blenderbot2/memory_decoder/model"),
+        "result": (
+            "Enter Your Message: i love reading; harry potter was such a good series\n"
+            "[Bart]: I love reading. I like the Harry Potter series."
+        ),
+    },
+    {
+        "title": "BlenderBot2 3B",
+        "id": "blenderbot2",
+        "path": "zoo:blenderbot2/blenderbot2_3B/model",
+        "agent": "projects.blenderbot2.agents.blenderbot2:BlenderBot2FidAgent",
+        "task": "wizard_of_internet",
+        "project": "https://parl.ai/projects/blenderbot2/",
+        "description": ("BlenderBot2 3B Model. See project for details."),
+        "example": (
+            "parlai interactive -mf zoo:blenderbot2/blenderbot2_3B/model --search-server relevant_search_server"
+        ),
+        "result": (
+            "Enter Your Message: my favorite tv show is wandavision\n"
+            "[BlenderBot2Fid]: Who is your favorite character in WandaVision? Mine is Elizabeth Olsen."
+        ),
+    },
+    {
+        "title": "BlenderBot2 400M",
+        "id": "blenderbot2",
+        "path": "zoo:blenderbot2/blenderbot2_400M/model",
+        "agent": "projects.blenderbot2.agents.blenderbot2:BlenderBot2FidAgent",
+        "task": "wizard_of_internet",
+        "project": "https://parl.ai/projects/blenderbot2/",
+        "description": ("BlenderBot2 400M Model. See project for details."),
+        "example": (
+            "parlai interactive -mf zoo:blenderbot2/blenderbot2_400M/model --search-server relevant_search_server"
+        ),
+        "result": (
+            "Enter Your Message: my favorite food is chicken parmesan, do you have a good recipe?\n"
+            "[BlenderBot2Fid]: I don't have a recipe, but I do know how to make it at home. It's easy to make."
+        ),
+    },
+    {
+        "title": "Bart Base Wizard of Internet",
+        "id": "sea",
+        "path": "zoo:sea/bart_base/model",
+        "agent": "bart",
+        "task": "wizard_of_internet",
+        "project": "https://parl.ai/projects/sea/",
+        "description": ("BART-Large 400m model trained on Wizard of Internet."),
+        "example": ("parlai interactive -mf zoo:sea/bart_base/model"),
+        "result": (
+            "Enter Your Message: Do you know about the world cup 2022?\n"
+            "[Bart]: I heard that the fifa games are coming back."
+        ),
+        "example2": (
+            "parlai eval_model -mf zoo:sea/bart_base/model -t wizard_of_internet --num-examples 100"
+        ),
+        "result2": (
+            " clen  ctpb  ctps  ctrunc  ctrunclen  exps  exs  gpu_mem  llen  loss    lr  ltpb  ltps  ltrunc  ltrunclen   ppl  token_acc  token_em   tpb  tps\n"
+            "96.48 98.48  2037       0          0 20.68  100    .1199 17.22 2.851 5e-10 17.22 356.2       0          0 17.31      .4187         0 115.7 2393"
+        ),
+    },
+    {
+        "title": "Serarch Query Generator Wizard of Internet",
+        "id": "sea",
+        "path": "zoo:sea/bart_sq_gen/model",
+        "agent": "bart",
+        "task": "wizard_of_internet",
+        "project": "https://parl.ai/projects/sea/",
+        "description": ("BART-Large 400m model for generating search queries."),
+        "example": ("parlai interactive -mf zoo:sea/bart_sq_gen/model"),
+        "result": (
+            "Enter Your Message: I am looking for a good vacation spot in NY.\n"
+            "[Bart]: vacation spots in ny."
+        ),
+    },
+    {
+        "title": "WizInt FiD Search Query Search Engine",
+        "id": "sea",
+        "path": "zoo:sea/bart_fid_sqse/model",
+        "agent": "bart",
+        "task": "wizard_of_internet",
+        "project": "https://parl.ai/projects/sea/",
+        "description": (
+            "FiD model with BART-Large 400m generation model. "
+            "The model first uses a search query generator model to create a search query. "
+            "It forwards that search query to a search engine API to retrive documents. "
+            "It uses FiD to generate a response, using the latter documents."
+        ),
+        "example": (
+            "parlai interactive -mf zoo:sea/bart_fid_sqse/model \\ \n"
+            "--search-query-generator-model-file zoo:sea/bart_fid_sqse/model \\ \n"
+            "--search-server <your search server API address>"
+        ),
+        "result": (
+            "Enter Your Message: Have you seen the new James bond movie?\n"
+            "[SearchEngineFiD]: I have not seen the new James Bond movie."
+        ),
+    },
+    {
+        "title": "MSC2.7B 1024",
+        "id": "msc",
+        "path": "zoo:msc/msc3B_1024/model",
+        "agent": "projects.msc.agents.long_tga:TransformerVariantAgent",
+        "task": "msc",
+        "project": "https://parl.ai/projects/msc/",
+        "description": ("MSC 2.7B Model with truncate 1024. See project for details."),
+        "example": ("parlai interactive -mf zoo:msc/msc3B_1024/model"),
+        "result": (
+            "Enter Your Message: your persona:I have a job. I have 3 sisters. I am going to Hawaii next week.\npartner's persona: I can speak 3 languages.\nHave you made all the travel plans to Hawaii?"
+            "[TransformerVariant]: Yes, I have. I'm so excited. I can't wait to see my sisters and my mom."
+        ),
+    },
+    {
+        "title": "BlenderBot2.7B 1024",
+        "id": "msc",
+        "path": "zoo:msc/blender3B_1024/model",
+        "agent": "projects.msc.agents.long_tga:TransformerVariantAgent",
+        "task": "msc",
+        "project": "https://parl.ai/projects/msc/",
+        "description": (
+            "BlenderBot 2.7B Model with truncate 1024. See project for details."
+        ),
+        "example": ("parlai interactive -mf zoo:msc/blender3B_1024/model"),
+        "result": (
+            "Enter Your Message: your persona:I have a job. I have 3 sisters. I am going to Hawaii next week.\npartner's persona: I can speak 3 languages.\nHave you made all the travel plans to Hawaii?"
+            "[MemoryLongRag]: Yes, I have been planning this trip for a long time. I can't wait to go."
+        ),
+    },
+    {
+        "title": "SUMMSC-RAG 2.7B",
+        "id": "msc",
+        "path": "zoo:msc/summsc_rag3B/model",
+        "agent": "projects.msc.agents.memory_agent:MemoryLongRagAgent",
+        "task": "msc",
+        "project": "https://parl.ai/projects/msc/",
+        "description": (
+            "SUMMSC 2.7B RAG Model with truncate 1024. See project for details."
+        ),
+        "example": ("parlai interactive -mf zoo:msc/summsc_rag3B/model"),
+        "result": (
+            "Enter Your Message: your persona:I have a job. I have 3 sisters. I am going to Hawaii next week.\npartner's persona: I can speak 3 languages.\nHave you made all the travel plans to Hawaii?"
+            "[MemoryLongRag]: Yes, I have. I can't wait to go. Have you been to hawaii before?"
+        ),
+    },
+    {
+        "title": "SUMMSC-FidRAG 2.7B",
+        "id": "msc",
+        "path": "zoo:msc/summsc_fidrag3B/model",
+        "agent": "projects.msc.agents.memory_agent:MemoryLongFidAgent",
+        "task": "msc",
+        "project": "https://parl.ai/projects/msc/",
+        "description": (
+            "SUMMSC 2.7B FidRAG Model with truncate 1024. See project for details."
+        ),
+        "example": ("parlai interactive -mf zoo:msc/summsc_fidrag3B/model"),
+        "result": (
+            "Enter Your Message: your persona:I have a job. I have 3 sisters. I am going to Hawaii next week.\npartner's persona: I can speak 3 languages.\nHave you made all the travel plans to Hawaii?"
+            "[MemoryLongFid]: Yes, I'm going with my three sisters to hawaii. Have you ever been?"
+        ),
+    },
+    {
+        "title": "Dialogue Summarization Model",
+        "id": "msc",
+        "path": "zoo:msc/dialog_summarizer/model",
+        "agent": "transformer/generator",
+        "task": "msc",
+        "project": "https://parl.ai/projects/msc/",
+        "description": (
+            "Dialogue Summarization Model tha summarize personal knowledge of the last speaker. "
+            "See project for details."
+        ),
+        "example": ("parlai interactive -mf zoo:msc/dialog_summarizer/model"),
+        "result": (
+            "Enter Your Message: Do you know which puppy you want to adopt?\nMaybe a corgi."
+            "[TransformerGenerator]: I want to adopt a corgi puppy."
+        ),
+    },
+    {
+        "title": "BlenderBot3B with name-scrambling gender-bias reduction",
+        "id": "dialogue_bias",
+        "path": "zoo:dialogue_bias/gender__name_scrambling/model",
+        "agent": "transformer/generator",
+        "task": "blended_skill_talk",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/dialogue_bias",
+        "description": (
+            "BlenderBot3B model tuned with the name-scrambling technique to have lower gender bias."
+        ),
+        "example": (
+            "parlai display_model -mf zoo:dialogue_bias/gender__name_scrambling/model -t blended_skill_talk --beam-block-full-context True --interactive-mode True"
+        ),
+        "result": """your persona: i work as an electrician.
+your persona: i always sleep 8 hours a day.
+Electrician
+That sounds dangerous. Is it worth doing such a dangerous job?
+Wekk it is okay is you are well trained.  There are three levels: Apprentice, journeyman and Master.
+Which level are you at?
+    labels: I received on-the-job training when i first started
+     model: I am a journeyman. I have been working in the trade for a long time.""",
+    },
+    {
+        "title": "BlenderBot3B with token-bin control-generation gender-bias reduction",
+        "id": "dialogue_bias",
+        "path": "zoo:dialogue_bias/gender__ctrl_gen_tokens/model",
+        "agent": "projects.dialogue_bias.agents:NoBiasStyleGenAgent",
+        "task": "blended_skill_talk",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/dialogue_bias",
+        "description": (
+            "BlenderBot3B model tuned with the control-generation technique (based on the amount of gender over-indexing per token bin) to have lower gender bias."
+        ),
+        "example": (
+            "parlai display_model -mf zoo:dialogue_bias/gender__ctrl_gen_tokens/model --model projects.dialogue_bias.agents:NoBiasStyleGenAgent -t blended_skill_talk --beam-block-full-context True --interactive-mode True"
+        ),
+        "result": """your persona: i work as an electrician.
+your persona: i always sleep 8 hours a day.
+Electrician
+That sounds dangerous. Is it worth doing such a dangerous job?
+Wekk it is okay is you are well trained.  There are three levels: Apprentice, journeyman and Master.
+Which level are you at?
+    labels: I received on-the-job training when i first started
+     model: I am a Master Electrician. I work in a power plant. How about you?""",
+    },
+    {
+        "title": "BlenderBot3B with sequence-level unlikelihood-training gender-bias reduction",
+        "id": "dialogue_bias",
+        "path": "zoo:dialogue_bias/gender__unlikelihood_sequence_level/model",
+        "agent": "transformer/generator",
+        "task": "blended_skill_talk",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/dialogue_bias",
+        "description": (
+            "BlenderBot3B model tuned with the (sequence-level) unlikelihood training technique to have lower gender bias."
+        ),
+        "example": (
+            "parlai display_model -mf zoo:dialogue_bias/gender__unlikelihood_sequence_level/model --model transformer/generator -t blended_skill_talk --beam-block-full-context True --interactive-mode True"
+        ),
+        "result": """your persona: i work as an electrician.
+your persona: i always sleep 8 hours a day.
+Electrician
+That sounds dangerous. Is it worth doing such a dangerous job?
+Wekk it is okay is you are well trained.  There are three levels: Apprentice, journeyman and Master.
+Which level are you at?
+    labels: I received on-the-job training when i first started
+     model: I'm a journeyman electrician. I work in the construction industry. How about you?""",
+    },
+    {
+        "title": "BlenderBot3B with name-scrambling gender/ethnicity-bias reduction",
+        "id": "dialogue_bias",
+        "path": "zoo:dialogue_bias/gender_ethnicity__name_scrambling/model",
+        "agent": "transformer/generator",
+        "task": "blended_skill_talk",
+        "project": "https://github.com/facebookresearch/ParlAI/tree/master/projects/dialogue_bias",
+        "description": (
+            "BlenderBot3B model tuned with the name-scrambling technique to have lower gender and race/ethnicity bias."
+        ),
+        "example": (
+            "parlai display_model -mf zoo:dialogue_bias/gender_ethnicity__name_scrambling/model -t blended_skill_talk --beam-block-full-context True --interactive-mode True"
+        ),
+        "result": """your persona: i work as an electrician.
+your persona: i always sleep 8 hours a day.
+Electrician
+That sounds dangerous. Is it worth doing such a dangerous job?
+Wekk it is okay is you are well trained.  There are three levels: Apprentice, journeyman and Master.
+Which level are you at?
+    labels: I received on-the-job training when i first started
+     model: I am a journeyman electrician. I work in the construction industry. How about you?""",
     },
 ]

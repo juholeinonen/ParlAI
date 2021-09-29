@@ -91,7 +91,7 @@ task_list = [
         "task": "bot_adversarial_dialogue",
         "tags": [],
         "description": (
-            "Datasets described in the paper Recipes for Safety in Open-domain Chatbots."
+            "Datasets described in the paper Recipes for Safety in Open-domain Chatbots. "
             "Datasets consist of classification tasks in which the goal is to "
             "determine if the utterance is offensive or not given a dialogue context. "
         ),
@@ -289,12 +289,27 @@ task_list = [
         "links": {"arXiv": "https://arxiv.org/abs/1706.05125"},
     },
     {
+        "id": "Glue",
+        "display_name": "Glue",
+        "task": "glue",
+        "tags": [],
+        "description": (
+            "GLUE, the General Language Understanding Evaluation benchmark is "
+            "a collection of resources for training, evaluating, and analyzing "
+            "natural language understanding systems."
+        ),
+        "links": {
+            "website": "https://gluebenchmark.com/",
+            "website2": "https://huggingface.co/datasets/glue",
+        },
+    },
+    {
         "id": "HotpotQA",
         "display_name": "HotpotQA",
         "task": "hotpotqa",
         "tags": ["QA"],
         "description": (
-            "HotpotQA is a dataset for multi-hop question answering."
+            "HotpotQA is a dataset for multi-hop question answering. "
             "The overall setting is that given some context paragraphs"
             "(e.g., a few paragraphs, or the entire Web) and a question,"
             "a QA system answers the question by extracting a span of text"
@@ -304,12 +319,20 @@ task_list = [
         "links": {"arXiv": "https://arxiv.org/abs/1809.09600"},
     },
     {
+        "id": "HuggingFace",
+        "display_name": "HuggingFace",
+        "task": "huggingface",
+        "tags": [],
+        "description": ("HuggingFace datasets"),
+        "links": {"website": "https://huggingface.co/"},
+    },
+    {
         "id": "LIGHT-Dialogue",
         "display_name": "LIGHT-Dialogue",
         "task": "light_dialog",
         "tags": ["Grounded", "Dodeca"],
         "description": (
-            "LIGHT is a text adventure game with actions and dialogue collected."
+            "LIGHT is a text adventure game with actions and dialogue collected. "
             "The source data is collected between crowdworkers playing the game."
         ),
         "links": {
@@ -323,7 +346,7 @@ task_list = [
         "task": "light_dialog_wild",
         "tags": ["Grounded", "LIGHT"],
         "description": (
-            " LIGHT is a text adventure game with actions and dialogue."
+            " LIGHT is a text adventure game with actions and dialogue. "
             "The WILD dataset here features 41,131+ training episodes of dialogue "
             "collected from deploying a game as described in "
         ),
@@ -580,6 +603,22 @@ task_list = [
         "links": {"arXiv": "https://arxiv.org/abs/1606.05250"},
     },
     {
+        "id": "SuperGLUE",
+        "display_name": "SuperGLUE",
+        "task": "superglue",
+        "tags": [],
+        "description": (
+            "SuperGLUE (https://super.gluebenchmark.com/) is a new benchmark "
+            "styled after GLUE with a new set of more difficult language "
+            "understanding tasks, improved resources, and a new public "
+            "leaderboard."
+        ),
+        "links": {
+            "website": "https://super.gluebenchmark.com/",
+            "website2": "https://huggingface.co/datasets/super_glue",
+        },
+    },
+    {
         "id": "TriviaQA",
         "display_name": "TriviaQA",
         "task": "triviaqa",
@@ -831,7 +870,7 @@ task_list = [
             "A chit-chat dataset by GoogleAI providing high quality goal-oriented conversations"
             "The dataset hopes to provoke interest in written vs spoken language"
             "Both the datasets consists of two-person dialogs:"
-            "Spoken: Created using Wizard of Oz methodology."
+            "Spoken: Created using Wizard of Oz methodology. "
             "Written: Created by crowdsourced workers who were asked to write the "
             "full conversation themselves playing roles of both the user and assistant."
         ),
@@ -1093,7 +1132,7 @@ task_list = [
         "tags": ["ChitChat", "Dodeca"],
         "description": (
             "A dataset of 25k conversations grounded in emotional situations "
-            "to facilitate training and evaluating dialogue systems."
+            "to facilitate training and evaluating dialogue systems. "
             "Dataset has been released under the CC BY-NC license."
         ),
         "links": {"arXiv": "https://arxiv.org/abs/1811.00207"},
@@ -1378,5 +1417,39 @@ task_list = [
             "paper": "http://workshop.colips.org/dstc7/dstc8/DTSC8_multidomain_task_proposal.pdf",
             "website": "https://www.microsoft.com/en-us/research/project/metalwoz/",
         },
+    },
+    {
+        "id": "Wizard_of_Internet",
+        "display_name": "Wizard_of_Internet",
+        "task": "wizard_of_internet",
+        "tags": ["ChitChat"],
+        "description": (
+            "A dataset with conversations directly grounded with knowledge "
+            "retrieved from internet. One of the participants has access to internet search. "
+            "The other side has an assigned persona that provides the topic of the conversation. "
+            "Contains 93.7k utterances from 9.6k conversations, split into train, "
+            "test, and valid sets."
+        ),
+    },
+    {
+        "id": "msc",
+        "display_name": "MultiSessionChat",
+        "task": "msc",
+        "tags": ["ChitChat"],
+        "description": (
+            "A multi-session human-human chit-chat dataset consist of session 2-5 follow up from PersonaChat "
+            "It contains 5k full converesations from session 2 to session 5 (session 1 being PersonaChat) "
+        ),
+    },
+    {
+        "id": "jericho_world",
+        "display_name": "JerichoWorld",
+        "task": "jericho_world",
+        "tags": [],
+        "description": (
+            "Jericho World dataset: common sense in a text-based game. "
+            "The goal is generating the knowledge graph of the game state "
+            "or the set of valid actions from the text descriptions of the world."
+        ),
     },
 ]

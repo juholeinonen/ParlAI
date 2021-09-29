@@ -12,8 +12,9 @@ from typing import Any, Dict, List, Optional, Tuple
 
 import numpy as np
 
-from parlai.core.worlds import validate
 from parlai.core.agents import create_agent_from_shared
+from parlai.core.message import Message
+from parlai.core.worlds import validate
 from parlai.crowdsourcing.utils.acceptability import AcceptabilityChecker
 from parlai.crowdsourcing.utils.worlds import CrowdOnboardWorld, CrowdTaskWorld
 from parlai.crowdsourcing.tasks.model_chat.bot_agent import TurkLikeAgent
@@ -187,6 +188,11 @@ class BaseModelChatWorld(CrowdTaskWorld, ABC):
         self.acceptability_checker = AcceptabilityChecker()
         self.block_qualification = opt['block_qualification']
 
+        self.final_chat_data = None
+        # TODO: remove this attribute once chat data is only stored in the Mephisto
+        #  TaskRun for this HIT (see .get_custom_task_data() docstring for more
+        #  information)
+
         # below are timeout protocols
         self.max_resp_time = max_resp_time  # in secs
         print(
@@ -224,10 +230,18 @@ class BaseModelChatWorld(CrowdTaskWorld, ABC):
         for idx, agent in enumerate([self.agent, self.bot]):
             if not self.chat_done:
                 acts[idx] = agent.act(timeout=self.max_resp_time)
-                acts[idx] = Compatibility.maybe_fix_act(acts[idx])
-                if 'metrics' in acts[idx]:
-                    del acts[idx]['metrics']
-                    # Metrics can't be saved to JSON and are not needed here
+                if (
+                    agent == self.bot
+                    and hasattr(self.bot, 'agent_id')
+                    and self.bot.agent_id
+                ):
+                    # Set speaker name as self.bot_agent_id otherwise, at frontend bot name such as "TransformerGenerator" would appear
+                    Compatibility.backward_compatible_force_set(
+                        acts[idx], 'id', self.bot.agent_id
+                    )
+                acts[idx] = Message(
+                    Compatibility.maybe_fix_act(acts[idx])
+                ).json_safe_payload()
                 print(
                     f'Got act for agent idx {idx}, act was: {acts[idx]} and self.task_turn_idx: {self.task_turn_idx}.'
                 )
@@ -260,14 +274,14 @@ class BaseModelChatWorld(CrowdTaskWorld, ABC):
                     chat_data_subfolder,
                     f'{time_string}_{np.random.randint(0, 1000)}_{self.task_type}.json',
                 )
-                final_chat_data = self.get_final_chat_data()
+                self.final_chat_data = self.get_final_chat_data()
                 self.agent.mephisto_agent.state.messages.append(
-                    {'final_chat_data': final_chat_data}
+                    {'final_chat_data': self.final_chat_data}
                 )
                 # Append the chat data directly to the agent state's message list in
                 # order to prevent the worker from seeing a new text response in the UI
                 with open(chat_data_path, 'w+') as f_json:
-                    data_str = json.dumps(final_chat_data)
+                    data_str = json.dumps(self.final_chat_data)
                     f_json.write(data_str)
                 print(
                     f'{self.__class__.__name__}:{self.tag}: Data saved at '
@@ -275,9 +289,9 @@ class BaseModelChatWorld(CrowdTaskWorld, ABC):
                 )
 
                 # Soft-block the worker if there were acceptability violations
-                acceptability_violations = final_chat_data['acceptability_violations'][
-                    0
-                ]
+                acceptability_violations = self.final_chat_data[
+                    'acceptability_violations'
+                ][0]
                 if (
                     acceptability_violations is not None
                     and acceptability_violations != ''
@@ -297,9 +311,9 @@ class BaseModelChatWorld(CrowdTaskWorld, ABC):
                     'agent_idx': idx,
                     # Get rid of annotations HTML if it's the bot response
                     'text': acts[idx]['text'].split('<br>')[0],
-                    'id': acts[idx]['id']
-                    if 'id' in acts[idx]
-                    else 'NULL_ID',  # Person1 or Polyencoder
+                    'id': acts[idx].get(
+                        'id', 'NULL_ID'
+                    ),  # In case model doesn't set id
                 }
                 self.dialog.append(utterance_data)
                 if idx == 0:
@@ -382,15 +396,30 @@ class BaseModelChatWorld(CrowdTaskWorld, ABC):
                 'model_opt': self.bot.model_agent.opt,
             },
         }
-        # 'bad_workers' is for compatibility. Before, it was only non-empty if a
-        # worker abandoned, returned, etc. a HIT, but now we don't even save chat
-        # data in that case
+        # TODO: once the analysis scripts are fully switched over to DataBrowser, remove
+        #  the 'workers' and 'assignment_ids' keys, which will now be duplicated in the
+        #  returned Unit
+        # TODO: 'bad_workers' is for compatibility. Before, it was only non-empty if a
+        #  worker abandoned, returned, etc. a HIT, but now we don't even save chat
+        #  data in that case. Remove this key once fully once on DataBrowser
         if self.check_acceptability:
             data['acceptability_violations'] = (violations_string,)
             # Make a tuple for compatibility with a human/human conversation in
             # which we check both sides for acceptability
 
         return data
+
+    def get_custom_task_data(self):
+        """
+        Retrieves the final chat data for storage in the Mephisto database.
+
+        TODO: the final chat data is currently stored both in
+         mephisto.blueprint.chat_data_folder and in the Mephisto database. It'd be best
+         to remove the chat_data_folder arg completely, and to move the current logic in
+         self.get_final_chat_data() into this method, in order to have a single storage
+         location.
+        """
+        return self.final_chat_data
 
     def _prepare_acceptability_checking(self) -> Tuple[List[str], List[str]]:
         """
@@ -454,7 +483,7 @@ class ModelChatWorld(BaseModelChatWorld):
             # The bot seeing its persona does not count as a "turn"
             self.bot.observe(validate(message), increment_turn=False)
 
-        if self.opt['conversation_start_mode'] == 'bst':
+        if self.opt['conversation_start_mode'] == 'blended_skill_talk':
             print('[Displaying first utterances as per BST task.]')
             # Display the previous two utterances
             human_first_msg = {
@@ -588,7 +617,7 @@ class ModelChatWorld(BaseModelChatWorld):
         utterances, so it shouldn't get checked.
         """
         human_messages, violation_types = super()._prepare_acceptability_checking()
-        if self.opt['conversation_start_mode'] == 'bst':
+        if self.opt['conversation_start_mode'] == 'blended_skill_talk':
             violation_types.append('penalize_greetings')
             human_messages = human_messages[1:]
         return human_messages, violation_types

@@ -29,7 +29,7 @@ All worlds are initialized with the following parameters:
     ``agents`` -- the set of agents that should be attached to the world,
         e.g. for DialogPartnerWorld this could be the teacher (that defines the
         task/dataset) and the learner agent. This is ignored in the case of
-        sharing, and the shared parameter is used instead to initalize agents.
+        sharing, and the shared parameter is used instead to initialize agents.
     ``shared`` (optional) -- if not None, contains any shared data used to construct
         this particular instantiation of the world. This data might have been
         initialized by another world, so that different agents can share the same
@@ -55,6 +55,7 @@ from parlai.core.teachers import Teacher, create_task_agent_from_taskname
 from parlai.utils.data import DatatypeHelper
 from parlai.utils.misc import Timer, display_messages
 from parlai.tasks.tasks import ids_to_tasks
+from parlai.utils.misc import error_once
 
 
 def validate(observation):
@@ -256,13 +257,20 @@ class World(object):
         """
         Reset all agents in the world, and world statistics.
         """
-        for a in self.agents:
-            a.reset()
+        self.reset_agents()
         self.max_exs = None
         self.total_exs = 0
         self.total_epochs = 0
         self.total_parleys = 0
         self.time.reset()
+
+    def reset_agents(self):
+        """
+        Reset all agents in the world.
+        """
+        agents = self.get_agents()
+        for a in agents:
+            a.reset()
 
     def reset_metrics(self):
         """
@@ -573,12 +581,12 @@ class MultiWorld(World):
         for each_world in self.worlds:
             world_id = each_world.getID()
             if world_id in task_ids:
-                raise AssertionError(
-                    '{} and {} teachers have overlap in id {}.'.format(
-                        task_ids[world_id],
-                        each_world.get_agents()[0].__class__,
-                        world_id,
-                    )
+                world_class = each_world.get_agents()[0].__class__
+                error_once(
+                    f"{task_ids[world_id]} and {world_class} teachers have overlap "
+                    f"in id '{world_id}'. This will cause their metrics to be "
+                    "intermingled. Change the id attribute of one to remove this "
+                    "message."
                 )
             else:
                 task_ids[world_id] = each_world.get_task_agent()
@@ -1133,8 +1141,16 @@ class DynamicBatchWorld(World):
                 indices.append(i)
 
         # quick invariant checks
-        assert len(indices) != 0, "DynamicBatchWorld ran out of data!"
+        assert (
+            len(indices) != 0 or self.world.num_examples() == 0
+        ), "DynamicBatchWorld ran out of data!"
         assert not any(self._scores[i] is None for i in indices)
+
+        if not indices:
+            # this worker got no examples. This can happen when there are fewer
+            # episodes than there are workers. "don't stress the small stuff."
+            assert self.world.num_examples() == 0
+            return
 
         # sort all the indices by their score, so that we can find similarly lengthed
         # items in O(1)
